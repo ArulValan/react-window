@@ -150,7 +150,7 @@ const findNearestItem = (
       instanceProps,
       lastMeasuredIndex,
       0,
-      offset
+      isNaN(offset) ? 0 : offset
     );
   } else {
     // If we haven't yet measured this high, fallback to an exponential search with an inner binary search.
@@ -223,7 +223,7 @@ const findNearestItemExponentialSearch = (
     instanceProps,
     Math.min(index, itemCount - 1),
     Math.floor(index / 2),
-    offset
+    isNaN(offset) ? 0 : offset
   );
 };
 
